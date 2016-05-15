@@ -78,6 +78,7 @@
     <Content Include="Admin.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="PermissionDenied.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Staff.aspx" />
     <Content Include="Web.config" />
@@ -102,6 +103,14 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MyRoleProvider.cs" />
+    <Compile Include="PermissionDenied.aspx.cs">
+      <DependentUpon>PermissionDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PermissionDenied.aspx.designer.cs">
+      <DependentUpon>PermissionDenied.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

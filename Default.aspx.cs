@@ -13,8 +13,27 @@ namespace RoleTest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
+            //if (User.Identity.IsAuthenticated)
+            //{
+            //    if (User.IsInRole("admin"))
+            //    {
+            //        Server.Transfer("Admin.aspx");
+            //    }
+            //    else
+            //    {
+            //        Server.Transfer("PermissionDenied.aspx");
+            //    }
+
+            //}
+
+            if (!Page.IsPostBack)
+            {
+                if (Request.IsAuthenticated && !string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
+                    // This is an unauthorized, authenticated request...
+                    Response.Redirect("PermissionDenied.aspx");
+            }
+
+            }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
