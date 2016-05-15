@@ -102,5 +102,25 @@ namespace RoleTest.App_Code
                 return result;
             }
         }
+        public static string GetRoleForUser(string username)
+
+        { 
+             string result = "";
+            
+            using (SqlConnection con = DBConfig.GetConnection())
+            {
+                //con.Open();
+                string SQL = "sp_GetRoleForUser";
+                SqlCommand CMD = new SqlCommand(SQL, con);
+                CMD.CommandType = CommandType.StoredProcedure;
+                CMD.Parameters.AddWithValue("@Username", username);
+
+                result = Convert.ToString(CMD.ExecuteScalar());
+                
+                CMD.Connection.Close();
+                return result;
+            }
+
+        }
     }
 }
